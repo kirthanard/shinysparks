@@ -1,0 +1,67 @@
+CREATE TABLE `hospital` (
+  `hid` int(10) NOT NULL,
+  `hname` varchar(25) NOT NULL,
+  `address` varchar(25) NOT NULL,
+  `city` varchar(25) NOT NULL,
+  `phone` int(10) NOT NULL,
+  `email` varchar(30),
+PRIMARY KEY (hid)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+INSERT INTO `hospitals` (`hid`, `hname`, `address`, `city`, `phone`, `email`) VALUES
+(1,'abc hospital','gandhi street','trichy',1234567890),
+(8,'xyz hospital','ji street','trichy',1234455890),
+(4,'preethi','kk nagar south street','madurai',1234567890,'preethi@gmail.com'),
+(2,'kas','northstreet madurai -2','madurai',1223456789,'kashoss@gmail.com'),
+(3,'ask','weststreet trichy-2','trichy',1223456777);
+
+create table disease(
+did int(10) primary key,
+dname varchar(25) not null,
+recovery_no int(15) not null,
+hid int(10) not null 
+)engine=innodb default charset=latin1
+
+
+
+INSERT INTO `disease` (`did`, `dname`, `recovery_no`, `hid`)VALUES
+(3,'typhoid',58,1),
+(4,'typhoid',58,2),
+(2,'cholera',60,1),
+(6,'diabetics',50,8),
+(7,'commoncold',75,4),
+(8,'lungcancer',69,3);
+
+create table doctor(
+docid int(10) primary key,
+docname varchar(25) not null,
+phone_no int(15) not null,
+qualification varchar(10) not null default 'MBBS',
+experience int(10),
+hid int(10) not null
+)engine=innodb default charset=latin1
+
+INSERT INTO `doctor` (`docid`, `docname`, `phone_no`, `qualification`,`experience`,`hid`)VALUES
+(1,'Dr.sheela',9443765432,'MD',3,1),
+(2,'Dr.suraj',9887654321,'BMBS',2,8),
+(3,'Dr.vandana',8906754321,'MS',4,4),
+(4,'Dr.srikanth',9876545678,'MS',6,2),
+(5,'Dr.leela',6456787987,'DM',3,3);
+
+
+CREATE TABLE `test` (
+  `tid` int(10) NOT NULL,
+  `tname` varchar(25) NOT NULL,
+  `address` varchar(25) NOT NULL,
+  `tamount` int(10) NOT NULL,
+PRIMARY KEY (tid)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+INSERT INTO `test` (`tid`, `tname`, `tamount`, `address`)VALUES
+(1,'urinetest',100,'sai nagar'),
+(2,'bloodtest',80,'mgr nagar'),
+(3,'sugartest',120,'anna nagar'),
+(4,'thyroidtest',150,'jk nagar'),
+(5,'cholestrol',180,'kk nagar'),
+(6,'skintest',200,'t nagar');
